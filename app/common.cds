@@ -1,8 +1,9 @@
 using expenses as exp from '../db/data-model';
 
 annotate exp.Expenses with {
+    description @title: 'Description';
     date @title : 'Date';
-    value @title : 'Value';
+    amount @title : 'Amount';
     currency @title : 'Currency';
-    type @title : 'Expense Type';
+    expenseType @title : 'Expense Type';
 }
