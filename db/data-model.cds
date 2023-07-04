@@ -7,7 +7,7 @@ entity Expenses: managed, cuid {
     currency: Currency;
     expenseType: ExpenseType;
     date: Date;
-}
+ }
 
 type ExpenseType: String enum {
     Food;

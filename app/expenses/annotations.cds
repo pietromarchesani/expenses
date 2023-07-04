@@ -14,3 +14,19 @@ using ExpenseService as service from '../../srv/expense-services';
        {Value: date},
     ],
  });
+
+  // Expenses Object Report Page
+ annotate service.Expenses with @(UI : {
+     Facets : [{
+        $Type : 'UI.ReferenceFacet',
+        Label : 'Main',
+        Target : '@UI.FieldGroup#Main',
+     }],
+     FieldGroup #Main : {Data : [
+       {Value : description},
+       {Value : amount},
+       {Value: currency_code},
+       {Value : expenseType},
+       {Value : date},
+    ]},
+ });
