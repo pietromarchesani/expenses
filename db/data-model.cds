@@ -2,10 +2,11 @@ namespace expenses;
 using { Currency, managed, cuid } from '@sap/cds/common';
 
 entity Expenses: managed, cuid {
-    date: Date;
-    value: Decimal;
+    description: String(255);
+    amount: Decimal;
     currency: Currency;
-    type: ExpenseType;
+    expenseType: ExpenseType;
+    date: Date;
 }
 
 type ExpenseType: String enum {

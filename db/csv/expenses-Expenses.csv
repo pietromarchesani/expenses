@@ -1,2 +1,2 @@
-ID;date;value;currency_code;type
-100;03-07-2023;12.5;EUR;FOOD
+ID;description;amount;currency_code;expenseType;date
+100;"first expense";12.7;EUR;FOOD;03-07-2023
