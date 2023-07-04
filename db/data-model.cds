@@ -1,5 +1,6 @@
 namespace expenses;
 using { Currency, managed, cuid } from '@sap/cds/common';
+using from '@sap/cds-common-content';
 
 entity Expenses: managed, cuid {
     description: String(255);
