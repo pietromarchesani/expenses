@@ -17,6 +17,18 @@ using ExpenseService as service from '../../srv/expense-services';
 
   // Expenses Object Report Page
  annotate service.Expenses with @(UI : {
+   HeaderInfo : {
+       TypeName : 'Expense',
+       TypeNamePlural : 'Expenses',
+       Title : {
+          $Type : 'UI.DataField',
+          Value : description
+       },
+       Description : {
+          $Type : 'UI.DataField',
+          Value : expenseType
+       }
+    },
      Facets : [{
         $Type : 'UI.ReferenceFacet',
         Label : 'Main',

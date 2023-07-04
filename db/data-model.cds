@@ -9,6 +9,8 @@ entity Expenses: managed, cuid {
     date: Date;
  }
 
+annotate Expenses with @odata.draft.enabled;
+
 type ExpenseType: String enum {
     Food;
     Hotel;
