@@ -66,3 +66,15 @@ resources:
       config:
         xsappname: expenses-${org}-${space}
         tenant-mode: dedicated
+        role-collections:
+        - name: 'ExpenseManager-${space}'
+          description: Manage Expenses
+          role-template-references:
+            - $XSAPPNAME.ExpenseManager
+        - name: 'ExpenseViewer-${space}'
+          description: View Expenses
+          role-template-references:
+            - $XSAPPNAME.ExpenseViewer
+        oauth2-configuration:
+          redirect-uris:
+            - https://8d781080trial-dev-expenses.cfapps.us10-001.hana.ondemand.com/login/callback
