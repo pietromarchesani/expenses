@@ -23,6 +23,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: expenses-db
+      - name: expenses-auth
 
   - name: expenses-db-deployer
     type: hdb
@@ -40,3 +41,12 @@ resources:
       service-plan: hdi-shared
       config:
         schema: expenses
+  - name: expenses-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: expenses-${org}-${space}
+        tenant-mode: dedicated
