@@ -43,6 +43,5 @@ annotate exp.Expenses with {
     }
    });
 
-
     expenseType @title : 'Expense Type';
 }
