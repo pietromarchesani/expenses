@@ -1,4 +1,11 @@
 {
+  "xsappname": "expenses",
+  "tenant-mode": "dedicated",
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://8d781080trial-dev-expenses.cfapps.us10-001.hana.ondemand.com/login/callback"
+    ]
+  },
   "scopes": [
     {
       "name": "$XSAPPNAME.ExpenseViewer",
