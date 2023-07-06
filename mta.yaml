@@ -40,4 +40,3 @@ resources:
       service-plan: hdi-shared
       config:
         schema: expenses
-
