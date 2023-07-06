@@ -23,11 +23,17 @@
     "app/expenses"
   ],
   "cds": {
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
     "requires": {
       "[production]": {
         "db": "hana-cloud"
       },
-      "db": "sql"
+      "db": "sql",
+      "[hybrid]": {
+        "db": "hana-cloud"
+      }
     }
   }
 }
