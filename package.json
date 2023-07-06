@@ -1,42 +1,46 @@
 {
-  "name": "expenses",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "https://github.com/pietromarchesani/expenses.git",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^6",
-    "@sap/cds-common-content": "^1.2.0",
-    "express": "^4",
-    "hdb": "^0.19.0",
-    "@sap/xssec": "^3",
-    "passport": "^0"
-  },
-  "devDependencies": {
-    "@sap/ux-specification": "^1.108.8",
-    "sqlite3": "^5"
-  },
-  "scripts": {
-    "start": "cds-serve",
-    "watch-expenses": "cds watch --open expenses/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "sapux": [
-    "app/expenses"
-  ],
-  "cds": {
-    "hana": {
-      "deploy-format": "hdbtable"
+    "name": "expenses",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "https://github.com/pietromarchesani/expenses.git",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^6",
+        "@sap/cds-common-content": "^1.2.0",
+        "express": "^4",
+        "hdb": "^0.19.0",
+        "@sap/xssec": "^3",
+        "passport": "^0"
     },
-    "requires": {
-      "[production]": {
-        "db": "hana-cloud",
-        "auth": "xsuaa"
-      },
-      "db": "sql",
-      "[hybrid]": {
-        "db": "hana-cloud"
-      }
+    "devDependencies": {
+        "@sap/ux-specification": "^1.108.8",
+        "sqlite3": "^5",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-expenses": "cds watch --open expenses/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy expenses --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "sapux": [
+        "app/expenses"
+    ],
+    "cds": {
+        "hana": {
+            "deploy-format": "hdbtable"
+        },
+        "requires": {
+            "[production]": {
+                "db": "hana-cloud",
+                "auth": "xsuaa"
+            },
+            "db": "sql",
+            "[hybrid]": {
+                "db": "hana-cloud"
+            }
+        }
     }
-  }
 }
