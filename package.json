@@ -9,7 +9,9 @@
     "@sap/cds": "^6",
     "@sap/cds-common-content": "^1.2.0",
     "express": "^4",
-    "hdb": "^0.19.0"
+    "hdb": "^0.19.0",
+    "@sap/xssec": "^3",
+    "passport": "^0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.108.8",
@@ -28,7 +30,8 @@
     },
     "requires": {
       "[production]": {
-        "db": "hana-cloud"
+        "db": "hana-cloud",
+        "auth": "xsuaa"
       },
       "db": "sql",
       "[hybrid]": {
