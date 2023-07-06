@@ -1,0 +1,31 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.ExpenseViewer",
+      "description": "ExpenseViewer"
+    },
+    {
+      "name": "$XSAPPNAME.ExpenseManager",
+      "description": "ExpenseManager"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "ExpenseViewer",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.ExpenseViewer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "ExpenseManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.ExpenseManager"
+      ],
+      "attribute-references": []
+    }
+  ]
+}
