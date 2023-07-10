@@ -1,2 +1,2 @@
-ID;description;amount;currency_code;expenseType;date
+ID;description;amount;currency_code;expenseType_code;date
 E65A5680-7C68-EFCA-1600-09027C5C71B7;"first expense";12.7;EUR;FOOD;2023-07-03

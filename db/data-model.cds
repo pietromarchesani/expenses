@@ -1,5 +1,5 @@
 namespace expenses;
-using { Currency, managed, cuid } from '@sap/cds/common';
+using { Currency, managed, cuid, sap } from '@sap/cds/common';
 using from '@sap/cds-common-content';
 
 entity Expenses: managed, cuid {
@@ -12,10 +12,9 @@ entity Expenses: managed, cuid {
 
 annotate Expenses with @odata.draft.enabled;
 
-//this is needed, otherwise the enum value will not be validated while insertiing into database
-@assert.range
-type ExpenseType: String enum {
-    FOOD = 'Food';
-    HOTEL = 'Hotel';
-    FLIGHT = 'Flight';
+type ExpenseType: Association to ExpenseTypes;
+
+// new code list for regions
+entity ExpenseTypes : sap.common.CodeList {
+  key code : String(6) @title : 'Expense Type code';
 }
