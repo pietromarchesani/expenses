@@ -2,7 +2,7 @@ using ExpenseService as service from '../../srv/expense-services';
 
  // Expenses List Report Page
  annotate service.Expenses with @(UI : {
-    SelectionFields : [expenseType],
+    SelectionFields : [expenseType_code],
     Identification : [{Value : ID}],
     // Define the table columns
     LineItem : [
@@ -10,7 +10,7 @@ using ExpenseService as service from '../../srv/expense-services';
        {Value : description},
        {Value : amount},
        {Value : currency_code},
-       {Value : expenseType},
+       {Value : expenseType_code},
        {Value: date},
     ],
  });
@@ -26,7 +26,7 @@ using ExpenseService as service from '../../srv/expense-services';
        },
        Description : {
           $Type : 'UI.DataField',
-          Value : expenseType
+          Value : expenseType_code
        }
     },
      Facets : [{
@@ -38,7 +38,7 @@ using ExpenseService as service from '../../srv/expense-services';
        {Value : description},
        {Value : amount},
        {Value: currency_code},
-       {Value : expenseType},
+       {Value : expenseType_code},
        {Value : date},
     ]},
  });
