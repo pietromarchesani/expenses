@@ -12,8 +12,10 @@ entity Expenses: managed, cuid {
 
 annotate Expenses with @odata.draft.enabled;
 
+//this is needed, otherwise the enum value will not be validated while insertiing into database
+@assert.range
 type ExpenseType: String enum {
-    Food;
-    Hotel;
-    Flight;
+    FOOD = 'Food';
+    HOTEL = 'Hotel';
+    FLIGHT = 'Flight';
 }
