@@ -16,9 +16,9 @@ annotate exp.Expenses with {
     modifiedAt @(
         UI.Hidden,
     );
-    description @title: 'Description';
-    date @title : 'Date';
-    amount @title : 'Amount';
+    description @title: '{@i18n>description}';
+    date @title : '{@i18n>date}';
+    amount @title : '{@i18n>amount}';
 
    currency @(Common : {
     // show descr, not code for currency in the context of expenses
