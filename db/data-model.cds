@@ -8,6 +8,7 @@ entity Expenses: managed, cuid {
     currency: Currency;
     expenseType: ExpenseType;
     date: Date;
+    project: Association to Projects;
  }
 
 annotate Expenses with @odata.draft.enabled;
@@ -17,4 +18,9 @@ type ExpenseType: Association to ExpenseTypes;
 // new code list for regions
 entity ExpenseTypes : sap.common.CodeList {
   key code : String(6) @title : 'Expense Type code';
+}
+
+entity Projects {
+  key code : String(20);
+  description : String(255);
 }

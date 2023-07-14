@@ -22,6 +22,8 @@ annotate exp.Expenses with {
 
     expenseType @title: 'Expense Type';
 
+    project @title : 'Project';
+
    currency @(Common : {
     // show descr, not code for currency in the context of expenses
     Text            : currency.descr,
@@ -68,4 +70,31 @@ annotate exp.Expenses with {
     }
    });
 
+      project @(Common : {
+    // show descr, not code for currency in the context of expenses
+    Text            : project.description,
+    TextArrangement : #TextOnly,
+    ValueList       : {
+    Label          : 'Project',
+    // this reference the collection/association in the model
+    CollectionPath : 'Projects',
+    // these are parameters used during the rendering of the collection data value/list
+    Parameters     : [
+       {
+       $Type : 'Common.ValueListParameterInOut',
+       LocalDataProperty : project_code,
+       ValueListProperty : 'code'
+       },
+       {
+       $Type : 'Common.ValueListParameterDisplayOnly',
+       ValueListProperty : 'description'
+       }
+    ]
+    }
+   });
+}
+
+annotate exp.Projects with {
+  code @title : 'Project Code';
+  description @title : 'Project Description';
 }

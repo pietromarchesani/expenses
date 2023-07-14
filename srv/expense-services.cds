@@ -15,4 +15,6 @@ entity Expenses @(restrict : [
         ])
         as projection on exp.Expenses;
 
+entity Projects as projection on exp.Projects;
+
 }
