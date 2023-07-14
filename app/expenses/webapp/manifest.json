@@ -104,6 +104,11 @@
                     "target": "ExpensesList"
                 },
                 {
+                    "pattern": "Projects({key}):?query:",
+                    "name": "ProjectsObjectPage",
+                    "target": "ProjectsObjectPage"
+                },
+                {
                     "pattern": "Expenses({key}):?query:",
                     "name": "ExpensesObjectPage",
                     "target": "ExpensesObjectPage"
@@ -135,7 +140,28 @@
                     "options": {
                         "settings": {
                             "editableHeaderContent": false,
-                            "entitySet": "Expenses"
+                            "entitySet": "Expenses",
+                            "navigation": {
+                                "toProject": {
+                                    "detail": {
+                                        "route": "ProjectsObjectPage",
+                                        "parameters": {
+                                            "key": "{project_code}"
+                                        }
+                                    }   
+                                }                         
+                            }                            
+                        }
+                    }
+                },
+                "ProjectsObjectPage": {
+                    "type": "Component",
+                    "id": "ProjectsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "Projects"
                         }
                     }
                 }
