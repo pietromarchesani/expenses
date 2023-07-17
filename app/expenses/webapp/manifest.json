@@ -96,7 +96,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",
@@ -104,7 +103,7 @@
                     "target": "ExpensesList"
                 },
                 {
-                    "pattern": "Projects({key}):?query:",
+                    "pattern": "Expenses(ID={key},IsActiveEntity={IsActiveEntity})/project",
                     "name": "ProjectsObjectPage",
                     "target": "ProjectsObjectPage"
                 },
@@ -142,15 +141,16 @@
                             "editableHeaderContent": false,
                             "entitySet": "Expenses",
                             "navigation": {
-                                "toProject": {
+                                "project": {
                                     "detail": {
                                         "route": "ProjectsObjectPage",
                                         "parameters": {
-                                            "key": "{project_code}"
+                                            "key": "{ID}",
+                                            "IsActiveEntity": "{IsActiveEntity}"
                                         }
-                                    }   
-                                }                         
-                            }                            
+                                    }
+                                }
+                            }
                         }
                     }
                 },
@@ -165,6 +165,11 @@
                         }
                     }
                 }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
             }
         }
     },

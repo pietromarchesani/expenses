@@ -8,10 +8,12 @@ entity Expenses: managed, cuid {
     currency: Currency;
     expenseType: ExpenseType;
     date: Date;
-    project: Association to Projects;
+    project: Project;
  }
 
-annotate Expenses with @odata.draft.enabled;
+type Project: Association to Projects;
+
+// annotate Expenses with @odata.draft.enabled;
 
 type ExpenseType: Association to ExpenseTypes;
 
@@ -24,3 +26,5 @@ entity Projects {
   key code : String(20);
   description : String(255);
 }
+
+// annotate Projects with @odata.draft.enabled;

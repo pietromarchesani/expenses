@@ -15,6 +15,10 @@ entity Expenses @(restrict : [
         ])
         as projection on exp.Expenses;
 
+// annotate Expenses with @odata.draft.enabled;
+
 entity Projects as projection on exp.Projects;
+
+// annotate Projects with @odata.draft.enabled;
 
 }
