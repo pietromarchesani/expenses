@@ -1,7 +1,15 @@
 using from '../common';
 using ExpenseService as service from '../../srv/expense-services';
 
+
+annotate service.Expenses with @fiori.draft.enabled;
+annotate service.Expenses with @Common.SemanticKey: [ID];
+annotate service.Projects with @Common.SemanticKey: [code];
+
+annotate cds.UUID with @Core.Computed  @odata.Type : 'Edm.String';
+
  // Expenses List Report Page
+ @odata.draft.enabled
  annotate service.Expenses with @(UI : {
     SelectionFields : [expenseType_code],
     Identification : [{Value : ID}],
@@ -55,7 +63,7 @@ using ExpenseService as service from '../../srv/expense-services';
        {Value : project_code,
            $Type: 'UI.DataFieldWithNavigationPath',
            Label : '{i18n>Project}',
-           Target : toProject},
+           Target : 'project'},
        {Value : date,
            Label : '{@i18n>date}'},
     ]},
@@ -72,6 +80,35 @@ using ExpenseService as service from '../../srv/expense-services';
        {Value : description},
     ],
  });
+
+ // Projects Object Report Page
+ // @odata.draft.enabled
+ annotate service.Projects with @(UI : {
+   HeaderInfo : {
+       TypeName : '{i18n>Project}',
+       TypeNamePlural : '{i18n>Projects}',
+       Title : {
+          $Type : 'UI.DataField',
+          Value : code
+       },
+       Description : {
+          $Type : 'UI.DataField',
+          Value : description
+       }
+    },
+     Facets : [{
+        $Type : 'UI.ReferenceFacet',
+        Label : '{i18n>Main}',
+        Target : '@UI.FieldGroup#Main',
+     }],
+     FieldGroup #Main : {Data : [
+       {Value : code,
+           Label : '{@i18n>code}'},
+       {Value : description,
+           Label : '{@i18n>description}'},
+    ]},
+ });
+
 annotate service.Expenses with {
     currency @Common.ValueList : {
         Label : '{i18n>Currency}',
@@ -96,7 +133,7 @@ annotate service.Expenses with {
 };
 annotate service.Expenses with {
     project @Common.Text : {
-            $value : project.code,
+            $value : project.description,
             ![@UI.TextArrangement] : #TextOnly,
         }
 };
