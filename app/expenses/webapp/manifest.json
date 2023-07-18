@@ -103,7 +103,7 @@
                     "target": "ExpensesList"
                 },
                 {
-                    "pattern": "Expenses(ID={key},IsActiveEntity={IsActiveEntity})/project",
+                    "pattern": "Expenses(ID={key},IsActiveEntity={IsActiveEntity})/project:?query:",
                     "name": "ProjectsObjectPage",
                     "target": "ProjectsObjectPage"
                 },
