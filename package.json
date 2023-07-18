@@ -44,6 +44,11 @@
         },
         "fiori": {
             "lean_draft": false
-        }
+        },
+        "log": {
+            "levels": {
+              "cds": "fatal"
+            }
+        }        
     }
 }
